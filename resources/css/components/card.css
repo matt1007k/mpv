@@ -1,0 +1,11 @@
+.card-home {
+    @apply px-14 py-6 md:py-0 rounded-xl bg-gradient-to-r from-blue-500 to-blue-900 flex mt-10;
+}
+
+.card__home-left {
+    @apply w-full md:w-1/3 flex items-center justify-center;
+}
+
+.card__home-right {
+    @apply w-2/3 relative -top-6 hidden md:flex justify-center;
+}

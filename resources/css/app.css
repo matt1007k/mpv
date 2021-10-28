@@ -1,0 +1,35 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+@import "./components/buttons.css";
+@import "./components/card.css";
+@import "./components/dropdown.css";
+@import "./components/table.css";
+
+@import "./helpers/spacing.css";
+
+@import "tailwindcss/utilities";
+
+body {
+    font-size: 15px;
+}
+@layer base {
+    h1 {
+        @apply text-3xl md:text-6xl font-bold leading-relaxed;
+    }
+    h2 {
+        @apply text-2xl md:text-5xl font-bold leading-normal;
+    }
+    h3 {
+        @apply text-xl md:text-3xl font-bold leading-normal;
+    }
+    h4 {
+        @apply text-lg font-bold leading-normal;
+    }
+    h5 {
+        @apply text-base font-bold;
+    }
+    h6 {
+        @apply font-bold leading-normal;
+    }
+}

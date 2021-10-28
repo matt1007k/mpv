@@ -1,0 +1,15 @@
+.btn {
+    @apply px-4 py-2 font-medium rounded-md flex items-center;
+}
+.btn-default {
+    @apply bg-gray-200 hover:bg-gray-300 text-black;
+}
+.btn-default:disabled {
+    @apply bg-gray-100 text-gray-300;
+}
+.btn-primary {
+    @apply text-white bg-blue-500 hover:bg-blue-600;
+}
+.btn-primary:disabled {
+    @apply bg-blue-200;
+}

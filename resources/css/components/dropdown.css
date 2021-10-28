@@ -1,0 +1,9 @@
+.option-item {
+    @apply flex items-center py-3 px-3 cursor-pointer bg-white hover:bg-gray-100;
+}
+.option-item.active {
+    @apply bg-gray-100;
+}
+.option-item.active svg {
+    @apply block text-blue-500 mr-3;
+}

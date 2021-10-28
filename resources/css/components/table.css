@@ -1,0 +1,15 @@
+.table__head {
+    @apply hidden md:flex justify-between border-b border-gray-300 px-3 py-3;
+}
+.table__head__item {
+    @apply font-semibold text-sm uppercase text-gray-500;
+}
+.table__body {
+    @apply flex justify-between px-3 py-4 hover:bg-gray-100;
+}
+.table__body__item {
+    @apply text-gray-600 flex flex-row items-center flex-1;
+}
+.table__body__item:first-child {
+    @apply flex-col items-start justify-start;
+}
