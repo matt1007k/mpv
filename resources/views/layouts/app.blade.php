@@ -30,26 +30,13 @@
     <div class="min-h-screen bg-white">
         <header class="bg-gradient-to-t from-blue-500 to-indigo-600 py-8">
 
-            @if(isset($navbar))
-            <div class="wrapper flex items-center justify-between">
-                @isset($navLeft)
-                <div class="flex items-center space-x-8">
-                    {{$navLeft}}
-                </div>
-                @endisset
-                @isset($navRight)
-                <div class="flex items-center space-x-8">
-                    {{$navRight}}
-                </div>
-                @endisset
-            </div>
-            {{-- @livewire('navigation-menu') --}}
-            @endif
+            <x-admin.navbar />
 
             <!-- Page Heading -->
             @if (isset($header))
             <div class="mt-10 wrapper">
                 {{ $header }}
+                @yield('header')
             </div>
             @endif
         </header>

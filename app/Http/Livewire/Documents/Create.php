@@ -54,8 +54,10 @@ class Create extends Component
             ]);
         }
 
-        $file_name = 'doc_' . $this->file->getClientOriginalName();
-        $file_path = $this->file->storeAs('documents', $file_name);
+        // $file_name = 'doc_' . $this->file->getClientOriginalName();
+        // $file_name = 'doc_' . $this->file->name;
+        // $file_path = $this->file->storeAs('documents', $file_name);
+        $file_path = $this->file->store('documents', 'public');
 
         if ($file_path) {
             $values = array(
@@ -69,7 +71,7 @@ class Create extends Component
                 'file' => $file_path,
             );
 
-            Document::insert($values);
+            Document::create($values);
             $this->reset();
             $this->currentStep = 1;
             $this->redirectRoute('pages.message-success');
