@@ -1,10 +1,7 @@
 <div>
-    {{-- <x-slot name="header"> --}}
-        <livewire:documents.header-list :total="$documents->count()" />
-        {{--
-    </x-slot> --}}
+    <livewire:documents.header-list :total="$documents->count()" />
 
-    <div class="py-8 wrapper">
+    <div class="py-8 wrapper mb-6">
         <div class="mb-4 flex justify-between md:justify-end items-center">
             <span class="font-semibold text-gray-500 mr-3">Ordernar por:</span>
             <x-jet-dropdown align="right" width="60">
@@ -93,13 +90,25 @@
 
             </div>
             @empty
-            <div class="py-5">
-                SIn registros
+            <div class="py-8 flex items-center justify-center">
+                <div class="flex flex-col items-center justify-center">
+                    <img src="{{ asset('img/empty.svg')}}" class="-mt-20" />
+                    @if($search != '' && $documents->count() == 0)
+                    <h4 class="font-medium text-gray-400 -mt-28">Lo siento, sin resultados de búsqueda con:
+                    </h4>
+                    <h4 class="font-semibold text-gray-700">{{ $search }}</h4>
+                    @else
+                    <h4 class="font-medium text-gray-400 -mt-28">Lo siento, la lista está vacía.</h4>
+                    @endif
+                </div>
             </div>
 
             @endforelse
 
 
+        </div>
+        <div class="mt-6 flex items-center justify-between">
+            {{ $documents->links('vendor.pagination.tailwind-lw') }}
         </div>
 
     </div>

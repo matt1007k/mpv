@@ -36,7 +36,6 @@
             @if (isset($header))
             <div class="mt-10 wrapper">
                 {{ $header }}
-                @yield('header')
             </div>
             @endif
         </header>

@@ -32,7 +32,7 @@ class DocumentList extends Component
     public function render()
     {
         return view('livewire.documents.document-list', [
-            'documents' => Document::search($this->search)->latest()->paginate(),
+            'documents' => Document::search($this->search)->latest()->paginate(20),
         ]);
     }
 }
