@@ -10,7 +10,7 @@
                 <p class="text-indigo-200 font-medium">{{ $total }} registros</p>
             </div>
 
-            <x-jet-dropdown align="right" width="60">
+            <x-overlays.dropdown>
                 <x-slot name="trigger">
                     {{-- Mobile --}}
                     <div class="p-3 flex md:hidden items-center justify-center bg-white rounded-xl cursor-pointer">
@@ -30,21 +30,19 @@
                         </svg>
                     </div>
                 </x-slot>
-                <x-slot name="content">
-                    <div class="w-60">
-                        <div class="option-item flex justify-between">
-                            <span>
-                                Excel
-                            </span>
-                        </div>
-                        <div class="option-item flex justify-between">
-                            <span>
-                                PDF
-                            </span>
-                        </div>
+                <div class="w-60">
+                    <div class="option-item flex justify-between" wire:click="report('excel')">
+                        <span>
+                            Excel
+                        </span>
                     </div>
-                </x-slot>
-            </x-jet-dropdown>
+                    <div class="option-item flex justify-between" wire:click="report('pdf')">
+                        <span>
+                            PDF
+                        </span>
+                    </div>
+                </div>
+            </x-overlays.dropdown>
         </div>
 
         <div class="w-full md:w-3/5 mx-auto mt-8">

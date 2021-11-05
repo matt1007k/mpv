@@ -13,11 +13,16 @@ class DocumentList extends Component
     public $search = '';
     public $orderBy = 'desc';
 
-    protected $listeners = ['onSearch', 'download', 'onSortBy'];
+    protected $listeners = ['onSearch', 'download', 'onSortBy', 'onReport'];
 
     public function download(int $id)
     {
         dd($id);
+    }
+
+    public function onReport(string $type)
+    {
+        dd($type);
     }
 
     public function onSearch(string $value)

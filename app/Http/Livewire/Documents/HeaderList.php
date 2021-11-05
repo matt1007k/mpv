@@ -21,6 +21,11 @@ class HeaderList extends Component
         }
     }
 
+    public function report(string $type)
+    {
+        $this->emitUp('onReport', $type);
+    }
+
     public function render()
     {
         return view('livewire.documents.header-list');

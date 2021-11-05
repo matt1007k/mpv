@@ -69,7 +69,7 @@
 
 
         </div>
-        <div class="mt-6 flex items-center justify-between">
+        <div class="mt-6 mb-14 flex items-center justify-between">
             {{ $documents->links('vendor.pagination.tailwind-lw') }}
         </div>
 
