@@ -2,44 +2,7 @@
     <livewire:documents.header-list :total="$documents->count()" />
 
     <div class="py-8 wrapper mb-6">
-        <div class="mb-4 flex justify-between md:justify-end items-center">
-            <span class="font-semibold text-gray-500 mr-3">Ordernar por:</span>
-            <x-jet-dropdown align="right" width="60">
-                <x-slot name="trigger">
-                    <div class="flex items-center cursor-pointer py-3 px-5 bg-white shadow-md rounded-full">
-                        <span class="font-medium mr-3">Recientes</span>
-                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7" />
-                        </svg>
-                    </div>
-                </x-slot>
-                <x-slot name="content">
-                    <div class="w-60">
-                        <div class="option-item active flex justify-between">
-                            <span>
-                                Recientes
-                            </span>
-                            <svg class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="m5 13 4 4L19 7" />
-                            </svg>
-                        </div>
-                        <div class="option-item flex justify-between">
-                            <span>
-                                Antiguos
-                            </span>
-                            <svg class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="m5 13 4 4L19 7" />
-                            </svg>
-                        </div>
-                    </div>
-                </x-slot>
-            </x-jet-dropdown>
-        </div>
+        <livewire:documents.sort-by />
 
         <div class="w-full mt-10">
             <div class="hidden md:grid grid-cols-9 gap-8  justify-between items-center p-3 border-b border-gray-300">
@@ -94,15 +57,14 @@
                 <div class="flex flex-col items-center justify-center">
                     <img src="{{ asset('img/empty.svg')}}" class="-mt-20" />
                     @if($search != '' && $documents->count() == 0)
-                    <h4 class="font-medium text-gray-400 -mt-28">Lo siento, sin resultados de búsqueda con:
+                    <h4 class="font-medium text-gray-400 -mt-28">Lo sentimos, sin resultados de búsqueda con:
                     </h4>
                     <h4 class="font-semibold text-gray-700">{{ $search }}</h4>
                     @else
-                    <h4 class="font-medium text-gray-400 -mt-28">Lo siento, la lista está vacía.</h4>
+                    <h4 class="font-medium text-gray-400 -mt-28">Lo sentimos, no hay documentos registrados.</h4>
                     @endif
                 </div>
             </div>
-
             @endforelse
 
 

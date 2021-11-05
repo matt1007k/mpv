@@ -25,8 +25,8 @@ class DocumentFactory extends Factory
         return [
             'email' => $this->faker->unique()->safeEmail(),
             'full_name' => $this->faker->name(),
-            'dni' => $this->faker->random_int(11111111, 99999999),
-            'cell_phone' => $this->faker->phoneNumber(),
+            'dni' => random_int(11111111, 99999999),
+            'cell_phone' => random_int(910000000, 999999999),
             'address' => $this->faker->address(),
             'origin_place' => $this->faker->city(),
             'subject' => $this->faker->title(),

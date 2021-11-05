@@ -11,8 +11,9 @@ class DocumentList extends Component
     use WithPagination;
 
     public $search = '';
+    public $orderBy = 'desc';
 
-    protected $listeners = ['onSearch', 'download'];
+    protected $listeners = ['onSearch', 'download', 'onSortBy'];
 
     public function download(int $id)
     {
@@ -24,6 +25,11 @@ class DocumentList extends Component
         $this->search = $value;
     }
 
+    public function onSortBy(string $sortBy = 'desc')
+    {
+        $this->orderBy = $sortBy;
+    }
+
     public function updatingSearch()
     {
         $this->resetPage();
@@ -32,7 +38,7 @@ class DocumentList extends Component
     public function render()
     {
         return view('livewire.documents.document-list', [
-            'documents' => Document::search($this->search)->latest()->paginate(20),
+            'documents' => Document::search($this->search)->orderBy('created_at', $this->orderBy)->paginate(15),
         ]);
     }
 }

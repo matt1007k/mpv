@@ -7,11 +7,11 @@
         </path>
     </svg>
     <div class="w-60 z-50 absolute origin-top-right right-0" @click.away="open = false" x-show="open">
-        <div class="option-item flex justify-between">
+        <a href="{{ route('admin.documents.show', $documentId)}}" class="option-item flex justify-between">
             <span>
                 Ver detalle
             </span>
-        </div>
+        </a>
         <div class="option-item flex justify-between" wire:click="download({{$documentId}})">
             <span>
                 Descargar archivo
