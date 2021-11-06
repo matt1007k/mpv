@@ -41,7 +41,7 @@
         </header>
 
         <!-- Page Content -->
-        <main style="height: calc(100vh - 4rem)" class="mb-28 md:mb-0">
+        <main class="mb-28 md:mb-0 h-full">
             <div style="background: url({{asset('img/Cube-2.png')}}); background-repeat: no-repeat; background-size: cover;"
                 class="h-full w-full">
                 <div class="bg-white bg-opacity-80 backdrop-filter backdrop-blur-3xl h-full w-full">

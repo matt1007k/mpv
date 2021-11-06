@@ -15,6 +15,6 @@ class DocumentsController extends Controller
 
     public function show(Document $document): View
     {
-        return view('admin.documents.show', $document);
+        return view('admin.documents.show', compact('document'));
     }
 }
