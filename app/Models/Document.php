@@ -30,4 +30,11 @@ class Document extends Model
             ->orWhere('origin_place', 'LIKE', "%$search%")
         ;
     }
+
+    public function scopeRangeDate(Builder $query, string $dateFrom, string $dateTo)
+    {
+        if ($dateFrom != "" && $dateTo != "") {
+            return $query->whereBetween('created_at', [$dateFrom, $dateTo]);
+        }
+    }
 }

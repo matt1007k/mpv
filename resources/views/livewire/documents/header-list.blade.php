@@ -73,12 +73,10 @@
                 </div>
             </div>
             <div class="w-full" x-show="isOpen" @keydown.escape.window="isOpen = false"
-                x-transition:enter="ease-out duration-300"
-                x-transition:enter-start="opacity-0  transform -translate-y-2"
-                x-transition:enter-end="opacity-100  transform translate-y-0 origin-top-right"
-                x-transition:leave="ease-in duration-200"
-                x-transition:leave-start="opacity-100 transform translate-y-0 "
-                x-transition:leave-end="opacity-0  transform translate-y-2">
+                x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-2"
+                x-transition:enter-end="opacity-100 transform translate-y-100" x-transition:leave="ease-in duration-200"
+                x-transition:leave-start="opacity-100 transform translate-y-0"
+                x-transition:leave-end="opacity-0 transform -translate-y-2">
                 <div class="bg-white w-full rounded-lg p-6 mt-3" @click.away="isOpen = false">
                     <div class="flex justify-between items-center">
                         <h4>Filtro avanzado</h4>
@@ -90,31 +88,37 @@
                         </svg>
                     </div>
                     <div class="mt-8">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="col-span-1">
-                                <div class="flex flex-col">
-                                    <label for="date_from" class="font-semibold text-gray-600 mb-1">Fecha
-                                        de</label>
-                                    <input type="date" class="py-2 px-3 rounded-lg border-2 border-gray-300 text-sm">
+                        <form wire:submit.prevent="onFilter">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="col-span-1">
+                                    <div class="flex flex-col">
+                                        <label for="date_from" class="font-semibold text-gray-600 mb-1">Fecha
+                                            de</label>
+                                        <input wire:model="dateFrom" type="date"
+                                            class="py-2 px-3 rounded-lg border-2 border-gray-300 text-sm">
+                                        <x-jet-input-error for="dateFrom" />
+                                    </div>
                                 </div>
+
+                                <div class="col-span-1">
+                                    <div class="flex flex-col">
+                                        <label for="date_from" class="font-semibold text-gray-600 mb-1">Fecha
+                                            a</label>
+                                        <input wire:model="dateTo" type="date"
+                                            class="py-2 px-3 rounded-lg border-2 border-gray-300 text-sm">
+                                        <x-jet-input-error for="dateTo" />
+                                    </div>
+                                </div>
+
                             </div>
 
-                            <div class="col-span-1">
-                                <div class="flex flex-col">
-                                    <label for="date_from" class="font-semibold text-gray-600 mb-1">Fecha
-                                        a</label>
-                                    <input type="date" class="py-2 px-3 rounded-lg border-2 border-gray-300 text-sm">
-                                </div>
+                            <div class="flex items-center justify-between mt-12 space-x-4">
+                                <button wire:click="clear" type="button"
+                                    class="py-3 px-4 font-semibold bg-gray-100 hover:bg-gray-200 w-full rounded-lg">Limpiar</button>
+                                <button type="submit"
+                                    class="py-3 px-4 font-semibold bg-indigo-500 hover:bg-indigo-600 text-indigo-50 w-full rounded-lg disabled:bg-indigo-200 disabled:cursor-not-allowed">Aplicar</button>
                             </div>
-
-                        </div>
-
-                        <div class="flex items-center justify-between mt-12 space-x-4">
-                            <button
-                                class="py-3 px-4 font-semibold bg-gray-100 hover:bg-gray-200 w-full rounded-lg">Limpiar</button>
-                            <button
-                                class="py-3 px-4 font-semibold bg-indigo-500 hover:bg-indigo-600 text-indigo-50 w-full rounded-lg">Aplicar</button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

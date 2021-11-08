@@ -12,8 +12,10 @@ class DocumentList extends Component
 
     public $search = '';
     public $orderBy = 'desc';
+    public $dateFrom = '';
+    public $dateTo = '';
 
-    protected $listeners = ['onSearch', 'download', 'onSortBy', 'onReport'];
+    protected $listeners = ['onSearch', 'download', 'onSortBy', 'onReport', 'onFilterAdvanced'];
 
     public function download(int $id)
     {
@@ -35,6 +37,12 @@ class DocumentList extends Component
         $this->orderBy = $sortBy;
     }
 
+    public function onFilterAdvanced(string $dateFrom, string $dateTo)
+    {
+        $this->dateFrom = $dateFrom;
+        $this->dateTo = $dateTo;
+    }
+
     public function updatingSearch()
     {
         $this->resetPage();
@@ -43,7 +51,7 @@ class DocumentList extends Component
     public function render()
     {
         return view('livewire.documents.document-list', [
-            'documents' => Document::search($this->search)->orderBy('created_at', $this->orderBy)->paginate(15),
+            'documents' => Document::search($this->search)->orderBy('created_at', $this->orderBy)->rangeDate($this->dateFrom, $this->dateTo)->paginate(15),
         ]);
     }
 }

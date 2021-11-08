@@ -180,6 +180,8 @@ return [
         'dato_id' => 'dato',
         'tipo_id' => 'tipo',
         'file' => 'archivo',
+        'dateFrom' => 'fecha de',
+        'dateTo' => 'fecha a',
 
         'data.attributes.full_name' => 'nombre completo',
         'data.attributes.email' => 'correo electrónico',
