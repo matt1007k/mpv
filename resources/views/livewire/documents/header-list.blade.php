@@ -31,12 +31,12 @@
                     </div>
                 </x-slot>
                 <div class="w-60">
-                    <div class="option-item flex justify-between" wire:click="report('excel')">
+                    <div class="option-item flex justify-between" wire:click="$emit('onReport', 'excel')">
                         <span>
                             Excel
                         </span>
                     </div>
-                    <div class="option-item flex justify-between" wire:click="report('pdf')">
+                    <div class="option-item flex justify-between" wire:click="$emit('onReport','pdf')">
                         <span>
                             PDF
                         </span>

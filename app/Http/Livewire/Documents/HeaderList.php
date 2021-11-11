@@ -24,11 +24,6 @@ class HeaderList extends Component
         }
     }
 
-    public function report(string $type)
-    {
-        $this->emitUp('onReport', $type);
-    }
-
     public function clear()
     {
         $this->dateFrom = '';

@@ -74,4 +74,21 @@
         </div>
 
     </div>
+
 </div>
+@push('js')
+<script>
+    document.addEventListener('DOMContentLoaded', () => { 
+        this.livewire.on('onReport', type => {
+            var params = { 
+                search: @this.search,
+                dateFrom: @this.dateFrom,
+                dateTo: @this.dateTo,
+            };
+            const hashParams = window.btoa(JSON.stringify(params));
+            const url = '/report-pdf/' + hashParams;
+            window.open(url, '_blank')
+        })    
+    })
+</script>
+@endpush
