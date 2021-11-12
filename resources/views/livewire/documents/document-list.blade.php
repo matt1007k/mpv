@@ -86,7 +86,13 @@
                 dateTo: @this.dateTo,
             };
             const hashParams = window.btoa(JSON.stringify(params));
-            const url = '/report-pdf/' + hashParams;
+            var url = '/report/'
+            if (type === 'pdf'){
+                var url = '/report-pdf/'
+            }else if(type === 'excel'){
+                var url = '/report-excel/'
+            }
+            url += hashParams
             window.open(url, '_blank')
         })    
     })
