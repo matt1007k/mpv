@@ -1,6 +1,6 @@
 <x-page-layout>
-    <x-slot name="title">MPV - Lista de documento</x-slot>
-    <x-slot name="description">Lista de documentos registrados en la mesa de partes virtual de la DREA.</x-slot>
+    <x-slot name="title">MPV - Inicio</x-slot>
+    <x-slot name="description">Bienvenido a nuestra mesa de partes virtual de la DREA.</x-slot>
     <div class="bg-gray-100 h-screen flex flex-col relative z-10">
         <div class="relative">
             <x-page.navbar class="bg-transparent" />
