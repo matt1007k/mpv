@@ -7,13 +7,15 @@
         <div class="hidden md:flex items-center space-x-6">
             <a href="{{ route('dashboard')}}"
                 class="@if(request()->routeIs('dashboard'))text-white @else text-indigo-300 @endif font-semibold text-base">Documentos</a>
-            <a href="{{ route('profile.show')}}"
+            {{-- <a href="{{ route('profile.show')}}"
                 class="@if(request()->routeIs('profile.show'))text-white @else text-indigo-300 @endif font-semibold text-base">Perfil</a>
+            --}}
         </div>
     </div>
     <div class="flex items-center space-x-8">
         {{-- Desktop --}}
-        <a href="#" class="hidden md:flex py-3 px-4 bg-black text-white font-semibold rounded-lg">
+        <a href="{{ router('products.create') }}"
+            class="hidden md:flex py-3 px-4 bg-black text-white font-semibold rounded-lg">
             Nuevo documento
         </a>
         <div class="hidden md:flex">

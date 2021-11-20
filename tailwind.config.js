@@ -16,7 +16,7 @@ module.exports = {
                 base: ["15px", "22px"],
             },
             fontFamily: {
-                sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+                sans: ["Inter", "Poppins", ...defaultTheme.fontFamily.sans],
             },
             width: {
                 wrap: "1200px",
