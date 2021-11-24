@@ -32,6 +32,19 @@ class Document extends Model
         return explode('/', $this->file)[1];
     }
 
+    public function hasResponse()
+    {
+        return $this->response()->count() > 0;
+    }
+
+    public function scopeHasUser(Builder $query)
+    {
+        if (!auth()->user()->isAdmin()) {
+            return $query->where('user_id', auth()->user()->id)
+                ->orWhere('email', auth()->user()->email);
+        }
+        return $query;
+    }
     public function scopeSearch(Builder $query, string $search)
     {
         return $query->where('full_name', 'LIKE', "%$search%")
@@ -39,6 +52,7 @@ class Document extends Model
             ->orWhere('email', 'LIKE', "%$search%")
             ->orWhere('address', 'LIKE', "%$search%")
             ->orWhere('origin_place', 'LIKE', "%$search%")
+            ->orWhere('subject', 'LIKE', "%$search%")
         ;
     }
 
@@ -47,5 +61,10 @@ class Document extends Model
         if ($dateFrom != "" && $dateTo != "") {
             return $query->whereBetween('created_at', [$dateFrom, $dateTo]);
         }
+    }
+
+    public function response()
+    {
+        return $this->hasOne(\App\Models\Response::class);
     }
 }

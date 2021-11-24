@@ -3,7 +3,6 @@
 
     <div class="py-8 wrapper mb-6">
         <livewire:documents.sort-by />
-
         <div class="w-full mt-10">
             <div class="hidden md:grid grid-cols-9 gap-8  justify-between items-center p-3 border-b border-gray-300">
                 <div class="flex font-medium text-gray-500 uppercase text-xs  whitespace-nowrap col-span-2">
@@ -62,6 +61,8 @@
                     <h4 class="font-semibold text-gray-700">{{ $search }}</h4>
                     @else
                     <h4 class="font-medium text-gray-400 -mt-28">Lo sentimos, no hay documentos registrados.</h4>
+                    <a href="{{ route('documents.create') }}"
+                        class=" mt-4 text-blue-500 font-medium hover:underline">Registrar documento</a>
                     @endif
                 </div>
             </div>

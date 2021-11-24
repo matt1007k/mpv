@@ -25,6 +25,11 @@ class Create extends Component
     public function mount()
     {
         $this->currentStep = 1;
+        if (auth() && auth()->user() != null) {
+            $this->full_name = auth()->user()->name;
+            $this->dni = auth()->user()->dni;
+            $this->email = auth()->user()->email;
+        }
     }
 
     public function validateData()
@@ -55,7 +60,7 @@ class Create extends Component
         }
 
         $file_name = 'doc_' . $this->file->getClientOriginalName();
-        $file_path = $this->file->storeAs('documents', $file_name);
+        $file_path = $this->file->storeAs('documents', $file_name, 'public');
         // $file_path = $this->file->store('documents', 'public');
 
         if ($file_path) {
@@ -68,6 +73,7 @@ class Create extends Component
                 'origin_place' => $this->origin_place,
                 'subject' => $this->subject,
                 'file' => $file_path,
+                'user_id' => auth()->user() != null ? auth()->user()->id : null,
             );
 
             Document::create($values);

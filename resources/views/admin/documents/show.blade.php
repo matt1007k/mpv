@@ -141,8 +141,8 @@
                                     <div class="ml-4 flex-shrink-0">
                                         <a href="{{ $document->filePath() }}" class="
                                 font-medium
-                                text-indigo-600
-                                hover:text-indigo-500
+                                text-blue-600
+                                hover:text-blue-500
                                 dark:text-white dark:hover:text-gray-100
                                 hover:underline
                               " target="_blank">
@@ -163,6 +163,11 @@
                 </dl>
             </div>
         </div>
+        @if(auth()->user()->isAdmin() && !$document->hasResponse())
+        <livewire:responses.answer-document-form :email="$document->email" :subject="$document->subject"
+            :documentId="$document->id" />
+        @endif
+        @if($document->hasResponse())
         <div class="
         bg-white
         dark:bg-gray-secondary
@@ -171,14 +176,18 @@
         shadow
         overflow-hidden
         sm:rounded-lg mt-5 p-6">
-            <h5>Asunto: {{ $document->subject }}</h5>
+            <div class="flex item-center justify-between">
+                <h5>Asunto: {{ $document->subject }}</h5>
+                {{-- <a href="" class="text-blue-500 hover:underline font-semibold">Editar</a> --}}
+            </div>
+            @if($document->response->type === 'success')
             <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 mt-4">
                 <div class="sm:col-span-1">
                     <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">
                         Registro de documento
                     </dt>
                     <dd class="mt-1 text-sm text-gray-900 dark:text-white">
-                        {{ $document->dni }}
+                        {{ $document->response->document_number }}
                     </dd>
                 </div>
                 <div class="sm:col-span-1">
@@ -186,10 +195,25 @@
                         Registro de expediente
                     </dt>
                     <dd class="mt-1 text-sm text-gray-900 dark:text-white">
-                        {{ $document->dni }}
+                        {{ $document->response->file_number }}
                     </dd>
                 </div>
             </dl>
+            @else
+            <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 mt-4">
+                <div class="sm:col-span-2">
+                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">
+                        Observación
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                        {{ $document->response->observation }}
+                    </dd>
+                </div>
+            </dl>
+            @endif
         </div>
+        @else
+        <div class="text-gray-500 text-lg mt-5 p-6 text-center">No hay ninguna respuesta para este documento.</div>
+        @endif
     </div>
 </x-app-layout>

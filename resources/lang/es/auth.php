@@ -33,4 +33,8 @@ return [
     'already_registered' => 'Ya tengo una cuenta',
     'log_in' => 'Ingresar',
     'register' => 'Registrarse',
+
+    'document_number' => 'Registro de documento',
+    'file_number' => 'Registro de expediente',
+    'observation' => 'Observación',
 ];

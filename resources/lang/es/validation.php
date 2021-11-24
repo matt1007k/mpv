@@ -183,6 +183,8 @@ return [
         'file' => 'archivo',
         'dateFrom' => 'fecha de',
         'dateTo' => 'fecha a',
+        'document_number' => 'registro de documento',
+        'file_number' => 'registro de expediente',
 
         'data.attributes.full_name' => 'nombre completo',
         'data.attributes.email' => 'correo electrónico',

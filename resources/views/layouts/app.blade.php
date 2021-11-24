@@ -25,6 +25,7 @@
 </head>
 
 <body class="font-sans antialiased relative">
+    <x-alert.floating />
     <x-jet-banner />
     <x-admin.nav-bottom />
 
@@ -56,6 +57,13 @@
 
     @livewireScripts
     @stack('js')
+    <script>
+        var alertFloat = document.querySelector('#alert')
+        function closeAlert(){
+            alertFloat.classList.add('-translate-y-10');
+            alertFloat.classList.add('opacity-0');
+        }
+    </script>
 </body>
 
 </html>

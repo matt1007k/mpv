@@ -41,7 +41,7 @@ class DocumentList extends Component
     public function render()
     {
         return view('livewire.documents.document-list', [
-            'documents' => Document::search($this->search)->orderBy('created_at', $this->orderBy)->rangeDate($this->dateFrom, $this->dateTo)->paginate(15),
+            'documents' => Document::hasUser()->search($this->search)->orderBy('created_at', $this->orderBy)->rangeDate($this->dateFrom, $this->dateTo)->paginate(15),
         ]);
     }
 }

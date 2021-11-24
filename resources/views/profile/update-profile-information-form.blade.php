@@ -64,6 +64,12 @@
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
+        <!-- DNI -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="dni" value="{{ __('auth.dni') }}" />
+            <x-jet-input id="dni" type="text" maxlength="8" class="mt-1 block w-full" wire:model.defer="state.dni" />
+            <x-jet-input-error for="dni" class="mt-2" />
+        </div>
     </x-slot>
 
     <x-slot name="actions">
