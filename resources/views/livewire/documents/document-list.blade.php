@@ -45,8 +45,8 @@
 
                     <div>
 
-                        <livewire:documents.document-option wire:key="{{ $document->id }}"
-                            :documentId="$document->id" />
+                        <livewire:documents.document-option wire:key="{{ $document->id }}" :documentId="$document->id"
+                            :filePath="$document->filePath()" />
                     </div>
                 </div>
 
@@ -92,9 +92,27 @@
             }else if(type === 'excel'){
                 var url = '/report-excel/'
             }
-            url += hashParams
-            window.open(url, '_blank')
+            url += hashParams;
+            window.open(url, '_blank');
         })    
+	this.livewire.on('download', filePath => {
+		// window.open(filePath, '_blank');
+		fetch(filePath)
+        .then(res => res.blob())
+        .then(response => {
+			 const url = window.URL.createObjectURL(
+			    new Blob([response])
+			);
+			const link = document.createElement("a");
+            const date = new Date().getTime();
+			const name_file = `${date}-documento.pdf`
+			link.href = url;
+			link.setAttribute("download", name_file); //or any other extension
+			document.body.appendChild(link);
+			link.click();
+
+		});
+	});
     })
 </script>
 @endpush

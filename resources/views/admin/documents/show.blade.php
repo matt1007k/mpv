@@ -87,12 +87,20 @@
                             {{ $document->origin_place }}
                         </dd>
                     </div>
-                    <div class="sm:col-span-2">
+                    <div class="sm:col-span-1">
                         <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">
                             Asunto
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 dark:text-white">
                             {{ $document->subject }}
+                        </dd>
+                    </div>
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">
+                            Fecha de registro
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                            {{ $document->created_at->format('d-m-Y h:m:s') }}
                         </dd>
                     </div>
 
@@ -127,11 +135,11 @@
                                                 clip-rule="evenodd" />
                                         </svg>
                                         <span class="ml-2 flex-1 w-0 truncate">
-                                            {{ $document->file }}
+                                            {{ $document->fileName() }}
                                         </span>
                                     </div>
                                     <div class="ml-4 flex-shrink-0">
-                                        <a href="{{ $document->file }}" class="
+                                        <a href="{{ $document->filePath() }}" class="
                                 font-medium
                                 text-indigo-600
                                 hover:text-indigo-500
@@ -154,6 +162,34 @@
                     @endif
                 </dl>
             </div>
+        </div>
+        <div class="
+        bg-white
+        dark:bg-gray-secondary
+        dark:border-gray-secondary
+        dark:border-opacity-50
+        shadow
+        overflow-hidden
+        sm:rounded-lg mt-5 p-6">
+            <h5>Asunto: {{ $document->subject }}</h5>
+            <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 mt-4">
+                <div class="sm:col-span-1">
+                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">
+                        Registro de documento
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                        {{ $document->dni }}
+                    </dd>
+                </div>
+                <div class="sm:col-span-1">
+                    <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">
+                        Registro de expediente
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                        {{ $document->dni }}
+                    </dd>
+                </div>
+            </dl>
         </div>
     </div>
 </x-app-layout>

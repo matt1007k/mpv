@@ -9,15 +9,18 @@ class DocumentOption extends Component
 
     public $showDropdown = false;
     public $documentId;
+    public $filePath;
 
-    public function mount(int $documentId = 0)
+	protected $listeners = ['download' => 'onDownload'];
+
+    public function mount(int $documentId = 0, string $filePath = '')
     {
         $this->documentId = $documentId;
+        $this->filePath = $filePath;
     }
 
-    public function download(int $id = 0)
+    public function onDownload(string $filePath = '')
     {
-        $this->emitUp('download', $id);
         $this->showDropdown = false;
     }
 

@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-logo width="100" />
+            <x-logo class="w-16" />
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -46,5 +46,9 @@
                 </x-jet-button>
             </div>
         </form>
+        <div class="mt-6 flex items-center justify-center">
+            <p>No tengo una cuenta. <a href="{{ route('register')}}"
+                    class="text-blue-500 font-semibold hover:underline">Registrarse</a></p>
+        </div>
     </x-jet-authentication-card>
 </x-guest-layout>

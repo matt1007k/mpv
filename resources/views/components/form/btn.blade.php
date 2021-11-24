@@ -1,7 +1,7 @@
 @php
 switch ($color) {
 case 'primary':
-$classColor ='text-white bg-indigo-500 hover:bg-indigo-600 focus:ring-indigo-500';
+$classColor ='text-white bg-blue-500 hover:bg-blue-600 focus:ring-blue-500';
 break;
 case 'danger':
 $classColor ='text-white bg-red-600 hover:bg-red-700 focus:ring-red-500';

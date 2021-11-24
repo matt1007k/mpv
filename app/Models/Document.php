@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Document extends Model
 {
@@ -19,6 +20,16 @@ class Document extends Model
     public function getCreatedAtFormatAttribute()
     {
         return $this->created_at->format('d/m/Y');
+    }
+
+    public function filePath()
+    {
+        return Storage::url($this->file);
+    }
+
+    public function fileName()
+    {
+        return explode('/', $this->file)[1];
     }
 
     public function scopeSearch(Builder $query, string $search)

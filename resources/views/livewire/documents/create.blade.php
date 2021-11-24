@@ -13,9 +13,9 @@
             <li class="md:flex-1">
                 <!-- Completed Step -->
                 <a wire:click="goStep(1)"
-                    class="cursor-pointer group pl-4 py-2 flex flex-col border-l-4 @if($currentStep >= 1) border-indigo-600 group-hover:border-indigo-800 @else border-gray-200 group-hover:border-gray-300 @endif md:pl-0 md:pt-4 md:pb-0 md:border-l-0 md:border-t-4">
+                    class="cursor-pointer group pl-4 py-2 flex flex-col border-l-4 @if($currentStep >= 1) border-blue-600 group-hover:border-blue-800 @else border-gray-200 group-hover:border-gray-300 @endif md:pl-0 md:pt-4 md:pb-0 md:border-l-0 md:border-t-4">
                     <span
-                        class="text-xs @if($currentStep >= 1) text-indigo-600 group-hover:text-indigo-800 @else text-gray-500 group-hover:text-gray-700 @endif font-semibold tracking-wide uppercase">Paso
+                        class="text-xs @if($currentStep >= 1) text-blue-600 group-hover:text-blue-800 @else text-gray-500 group-hover:text-gray-700 @endif font-semibold tracking-wide uppercase">Paso
                         1</span>
                     <span class="text-sm font-medium">Mis datos</span>
                 </a>
@@ -24,10 +24,10 @@
             <li class="md:flex-1">
                 <!-- Current Step -->
                 <a wire:click.prevent="goStep(2)"
-                    class="cursor-pointer group pl-4 py-2 flex flex-col border-l-4 @if($currentStep >= 2) border-indigo-600 group-hover:border-indigo-800 @else border-gray-200 group-hover:border-gray-300 @endif md:pl-0 md:pt-4 md:pb-0 md:border-l-0 md:border-t-4"
+                    class="cursor-pointer group pl-4 py-2 flex flex-col border-l-4 @if($currentStep >= 2) border-blue-600 group-hover:border-blue-800 @else border-gray-200 group-hover:border-gray-300 @endif md:pl-0 md:pt-4 md:pb-0 md:border-l-0 md:border-t-4"
                     aria-current="step">
                     <span
-                        class="text-xs @if($currentStep >= 2) text-indigo-600 group-hover:text-indigo-800 @else text-gray-500 group-hover:text-gray-700 @endif font-semibold tracking-wide uppercase">PASO
+                        class="text-xs @if($currentStep >= 2) text-blue-600 group-hover:text-blue-800 @else text-gray-500 group-hover:text-gray-700 @endif font-semibold tracking-wide uppercase">PASO
                         2</span>
                     <span class="text-sm font-medium">Mi dirección</span>
                 </a>
@@ -36,7 +36,7 @@
             <li class="md:flex-1">
                 <!-- Upcoming Step -->
                 <a wire:click="goStep(3)"
-                    class="cursor-pointer group pl-4 py-2 flex flex-col border-l-4 @if($currentStep >= 3) border-indigo-600 hover:border-indigo-800 @else border-gray-200 group-hover:border-gray-300 @endif md:pl-0 md:pt-4 md:pb-0 md:border-l-0 md:border-t-4">
+                    class="cursor-pointer group pl-4 py-2 flex flex-col border-l-4 @if($currentStep >= 3) border-blue-600 hover:border-blue-800 @else border-gray-200 group-hover:border-gray-300 @endif md:pl-0 md:pt-4 md:pb-0 md:border-l-0 md:border-t-4">
                     <span
                         class="text-xs text-gray-500 font-semibold tracking-wide uppercase group-hover:text-gray-700">PASO
                         3</span>
@@ -108,32 +108,8 @@
             @error('file')
             <div class="text-red-500 font-medium mb-2">{{ $message }}</div>
             @enderror
-            <input type="file" wire:model="file" name="file" id="file">
-            <button type="button"
-                class="flex items-center justify-center py-3 px-6 bg-red-500 text-white font-medium text-base rounded hover:bg-red-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
-                </svg>
-                <span class="ml-2">
-                    Subir archivo
-                </span>
-            </button>
-            <div class="mt-4 p-4 rounded bg-gray-100 flex items-center">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                    </path>
-                </svg>
-                <span class="mx-4">oficio_001_2021.pdf</span>
-                <svg class="w-6 h-6 cursor-pointer text-red-500 hover:text-red-600" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
-            </div>
+            <input type="file" wire:model="file" name="file" id="file"
+                class="py-3 px-4 border-2 border-blue-400 rounded-lg focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
         </div>
         @endif
 

@@ -15,12 +15,7 @@ class DocumentList extends Component
     public $dateFrom = '';
     public $dateTo = '';
 
-    protected $listeners = ['onSearch', 'download', 'onSortBy', 'onFilterAdvanced'];
-
-    public function download(int $id)
-    {
-        dd($id);
-    }
+    protected $listeners = ['onSearch', 'onSortBy', 'onFilterAdvanced'];
 
     public function onSearch(string $value)
     {
