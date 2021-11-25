@@ -15,9 +15,43 @@
             te
             ayudará a ver los documentos que registraste sin tener una cuenta.</p>
         <div class="mt-5 md:mt-10 flex flex-col sm:flex-col md:flex-row items-center gap-4 w-full">
-            <a href="{{ route('documents.create') }}"
-                class="py-2 px-3 md:py-3 md:px-5 w-full md:w-auto text-center font-semibold rounded-md bg-blue-500 hover:bg-blue-600 text-white border-2 border-blue-500 hover:border-blue-600 transition-all duration-100 ease-linear">Registar
-                documento</a>
+            <x-overlays.modal class="md:w-1/2">
+                <x-slot name="trigger">
+                    <button
+                        class="py-2 px-3 md:py-3 md:px-5 w-full md:w-auto text-center font-semibold rounded-md bg-blue-500 hover:bg-blue-600 text-white border-2 border-blue-500 hover:border-blue-600 transition-all duration-100 ease-linear">Registar
+                        documento</button>
+                </x-slot>
+                <div class="content">
+                    <x-slot name="title">
+                        Términos y Condiciones
+                    </x-slot>
+                    <p class="pb-3">
+                        Estimados usuarios, le damos la cordial bienvenida a la plataforma de Mesa de Partes Virtual de
+                        la Dirección Regional de Educación de Ayacucho. A través de este medio, podrán
+                        presentar sus solicitudes y/o documentos las 24 horas del día, de lunes a domingo.
+                    </p>
+
+                    <h6 class="mb-3">
+                        Tomar en cuenta la siguiente información:
+                    </h6>
+
+                    <ul class="ml-8">
+                        <li class="list-disc mb-2">Los documentos ingresados entre las 00:00 y 16:30 horas se
+                            registrarán
+                            dentro del mismo día
+                            hábil, luego de ese horario, serán registrados dentro del siguiente día hábil.</li>
+                        <li class="list-disc">
+                            Los documentos ingresados los sábados, domingos y feriados se considerarán presentados el
+                            siguiente día hábil.
+                        </li>
+                    </ul>
+
+                    <div class="flex items-center justify-end mt-5">
+                        <a href="{{ route('documents.create') }}"
+                            class="py-2 px-3 md:py-3 md:px-5 w-full md:w-auto text-center font-semibold rounded-md bg-blue-500 hover:bg-blue-600 text-white border-2 border-blue-500 hover:border-blue-600 transition-all duration-100 ease-linear">Aceptar</a>
+                    </div>
+                </div>
+            </x-overlays.modal>
             <a href="{{ route('login') }}"
                 class="py-2 px-3 md:py-3 md:px-5 w-full md:w-auto text-center bg-transparent border-2 border-blue-500 font-semibold text-black rounded-md hover:bg-blue-500 hover:text-white transition-all duration-100 ease-linear">Ingresar
                 y
