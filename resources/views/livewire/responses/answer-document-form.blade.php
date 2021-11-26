@@ -44,7 +44,7 @@
             <div class="col-span-2">
                 <x-jet-label for="observation" value="{{ __('auth.observation') }}" />
                 <x-form.textarea wire:model="observation" id="observation" class="block mt-1 w-full" name="observation"
-                    required autofocus>{{ old('observation', $observation) }}</x-form.textarea>
+                    required autofocus>{{ old('observation') }}</x-form.textarea>
                 <x-jet-input-error for="observation"></x-jet-input-error>
             </div>
             @endif
