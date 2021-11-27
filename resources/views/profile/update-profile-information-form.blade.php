@@ -64,11 +64,13 @@
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
-        <!-- DNI -->
+        <!-- # Document -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="dni" value="{{ __('auth.dni') }}" />
-            <x-jet-input id="dni" type="text" maxlength="8" class="mt-1 block w-full" wire:model.defer="state.dni" />
-            <x-jet-input-error for="dni" class="mt-2" />
+            <x-jet-label for="doc_number"
+                value="{{ strtoupper(auth()->user()->doc_type) }} - {{ __('auth.doc_number') }} " />
+            <x-jet-input id="doc_number" type="text" maxlength="8" class="mt-1 block w-full"
+                wire:model.defer="state.doc_number" />
+            <x-jet-input-error for="doc_number" class="mt-2" />
         </div>
     </x-slot>
 

@@ -18,9 +18,18 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="dni" value="{{ __('auth.dni') }}" />
-                <x-jet-input id="dni" class="block mt-1 w-full" type="text" maxlength="8" name="dni" :value="old('dni')"
-                    required />
+                <label for="doc_type">{{ __('auth.doc_type')}}</label>
+                <x-form.select id="doc_type" class="block mt-1 w-full" name="doc_type">
+                    <option value="">Seleccionar tipo</option>
+                    <option value="dni" {{ old('doc_type')==='dni' ? 'selected' : '' }}>Natural</option>
+                    <option value="ruc" {{ old('doc_type')==='ruc' ? 'selected' : '' }}>Juridica</option>
+                </x-form.select>
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="doc_number" value="{{ __('auth.doc_number') }}" />
+                <x-jet-input id="doc_number" class="block mt-1 w-full" type="text" name="doc_number"
+                    :value="old('doc_number')" required />
             </div>
 
 

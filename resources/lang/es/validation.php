@@ -184,6 +184,8 @@ return [
         'dateFrom' => 'fecha de',
         'dateTo' => 'fecha a',
         'document_number' => 'registro de documento',
+        'doc_type' => 'tipo de documento',
+        'doc_number' => 'número de documento',
         'file_number' => 'registro de expediente',
 
         'data.attributes.full_name' => 'nombre completo',

@@ -34,6 +34,8 @@ return [
     'log_in' => 'Ingresar',
     'register' => 'Registrarse',
 
+    'doc_type' => 'Tipo de documento',
+    'doc_number' => 'Número de documento',
     'document_number' => 'Registro de documento',
     'file_number' => 'Registro de expediente',
     'observation' => 'Observación',
