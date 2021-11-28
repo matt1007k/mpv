@@ -4,7 +4,7 @@
             Registrar documento
         </h3>
         <p class="mt-1 max-w-2xl text-sm text-gray-500">
-            Completa los campos requeridos para registrar tu documento.
+            Completa los campos requeridos para registrar tu documento. <span class="text-red-500">(*)</span>
         </p>
     </div>
 
@@ -51,25 +51,36 @@
         @if($currentStep == 1)
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
             <div class="col-span-1">
-                <x-jet-label for="full_name" value="{{ __('auth.full_name') }}" />
+                <x-jet-label for="full_name" value="{{ __('auth.full_name') }}*" />
                 <x-jet-input wire:model="full_name" id="full_name" class="block mt-1 w-full " type="text"
                     name="full_name" :value="old('full_name')" required autofocus />
                 <x-jet-input-error for="full_name"></x-jet-input-error>
             </div>
             <div class="col-span-1">
-                <x-jet-label for="email" value="{{ __('auth.email') }}" />
+                <x-jet-label for="email" value="{{ __('auth.email') }}*" />
                 <x-jet-input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email"
                     :value="old('email')" required autofocus />
                 <x-jet-input-error for="email"></x-jet-input-error>
             </div>
+
             <div class="col-span-1">
-                <x-jet-label for="dni" value="{{ __('auth.dni') }}" />
-                <x-jet-input wire:model="dni" maxlength="8" id="dni" class="block mt-1 w-full" type="text" name="dni"
-                    :value="old('dni')" required autofocus />
-                <x-jet-input-error for="dni"></x-jet-input-error>
+                <label for="doc_type">{{ __('auth.doc_person')}}*</label>
+                <x-form.select id="doc_type" class="block mt-1 w-full" wire:model="doc_type" name="doc_type">
+                    <option value="">Seleccionar tipo</option>
+                    <option value="dni" {{ old('doc_type')==='dni' ? 'selected' : '' }}>Natural</option>
+                    <option value="ruc" {{ old('doc_type')==='ruc' ? 'selected' : '' }}>Juridica</option>
+                </x-form.select>
+                <x-jet-input-error for="doc_type"></x-jet-input-error>
+            </div>
+
+            <div class="col-span-1">
+                <x-jet-label for="doc_number" value="{{ __('auth.doc_number') }}*" />
+                <x-jet-input wire:model="doc_number" id="doc_number" class="block mt-1 w-full" type="text"
+                    name="doc_number" :value="old('doc_number')" required autofocus />
+                <x-jet-input-error for="doc_number"></x-jet-input-error>
             </div>
             <div class="col-span-1">
-                <x-jet-label for="cell_phone" value="{{ __('auth.cell_phone') }}" />
+                <x-jet-label for="cell_phone" value="{{ __('auth.cell_phone') }}*" />
                 <x-jet-input wire:model="cell_phone" id="cell_phone" class="block mt-1 w-full" type="text"
                     name="cell_phone" :value="old('cell_phone')" maxlength="9" required autofocus />
                 <x-jet-input-error for="cell_phone"></x-jet-input-error>
@@ -80,19 +91,19 @@
         @if($currentStep == 2)
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
             <div class="col-span-1">
-                <x-jet-label for="address" value="{{ __('auth.address') }}" />
+                <x-jet-label for="address" value="{{ __('auth.address') }}*" />
                 <x-jet-input wire:model="address" id="address" class="block mt-1 w-full" type="text" name="address"
                     :value="old('address')" required autofocus />
                 <x-jet-input-error for="address"></x-jet-input-error>
             </div>
             <div class="col-span-1">
-                <x-jet-label for="origin_place" value="{{ __('auth.origin_place') }}" />
+                <x-jet-label for="origin_place" value="{{ __('auth.origin_place') }}*" />
                 <x-jet-input wire:model="origin_place" id="origin_place" class="block mt-1 w-full" type="text"
                     name="origin_place" :value="old('origin_place')" required autofocus />
                 <x-jet-input-error for="origin_place"></x-jet-input-error>
             </div>
             <div class="col-span-1">
-                <x-jet-label for="subject" value="{{ __('auth.subject') }}" />
+                <x-jet-label for="subject" value="{{ __('auth.subject') }}*" />
                 <x-jet-input wire:model="subject" id="subject" class="block mt-1 w-full" type="text" name="subject"
                     :value="old('subject')" required autofocus />
                 <x-jet-input-error for="subject"></x-jet-input-error>

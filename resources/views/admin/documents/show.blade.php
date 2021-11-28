@@ -49,10 +49,10 @@
                     </div>
                     <div class="sm:col-span-1">
                         <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                            DNI
+                            {{ strtoupper($document->doc_type) }}
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 dark:text-white">
-                            {{ $document->dni }}
+                            {{ $document->doc_number }}
                         </dd>
                     </div>
                     <div class="sm:col-span-1">

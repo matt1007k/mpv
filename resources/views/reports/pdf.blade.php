@@ -275,7 +275,7 @@
                         {{ $document->full_name }}
                     </p>
                     <p>
-                        DNI {{ $document->dni }}
+                        {{ strtoupper($document->doc_type) }} {{ $document->doc_number }}
                     </p>
                 </td>
                 <td>{{ $document->address }}</td>

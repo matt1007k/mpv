@@ -17,7 +17,8 @@ class CreateDocumentsTable extends Migration
             $table->id();
             $table->string('email', 150);
             $table->string('full_name', 200);
-            $table->string('dni', 10);
+            $table->enum('doc_type', ['dni', 'ruc'])->default('dni');
+            $table->string('doc_number', 10);
             $table->string('cell_phone', 9);
             $table->string('address', 200);
             $table->string('origin_place', 200);

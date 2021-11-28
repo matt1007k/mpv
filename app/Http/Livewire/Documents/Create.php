@@ -11,7 +11,8 @@ class Create extends Component
     use WithFileUploads;
 
     public $full_name;
-    public $dni;
+    public $doc_type;
+    public $doc_number;
     public $email;
     public $cell_phone;
     public $address;
@@ -27,7 +28,8 @@ class Create extends Component
         $this->currentStep = 1;
         if (auth() && auth()->user() != null) {
             $this->full_name = auth()->user()->name;
-            $this->dni = auth()->user()->dni;
+            $this->doc_type = auth()->user()->doc_type;
+            $this->doc_number = auth()->user()->doc_number;
             $this->email = auth()->user()->email;
         }
     }
@@ -38,7 +40,8 @@ class Create extends Component
             $this->validate([
                 'full_name' => 'required|string',
                 'email' => 'required|string|email',
-                'dni' => 'required|integer|digits:8',
+                'doc_type' => 'required|string',
+                'doc_number' => ['required', 'numeric', $this->doc_type === 'dni' ? 'digits:8' : 'digits:10'],
                 'cell_phone' => 'required|integer|digits:9',
             ]);
         } else if ($this->currentStep == 2) {
@@ -67,7 +70,8 @@ class Create extends Component
             $values = array(
                 'full_name' => $this->full_name,
                 'email' => $this->email,
-                'dni' => $this->dni,
+                'doc_type' => $this->doc_type,
+                'doc_number' => $this->doc_number,
                 'cell_phone' => $this->cell_phone,
                 'address' => $this->address,
                 'origin_place' => $this->origin_place,

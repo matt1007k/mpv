@@ -18,7 +18,7 @@
             </div>
 
             <div class="mt-4">
-                <label for="doc_type">{{ __('auth.doc_type')}}</label>
+                <label for="doc_type">{{ __('auth.doc_person')}}</label>
                 <x-form.select id="doc_type" class="block mt-1 w-full" name="doc_type">
                     <option value="">Seleccionar tipo</option>
                     <option value="dni" {{ old('doc_type')==='dni' ? 'selected' : '' }}>Natural</option>

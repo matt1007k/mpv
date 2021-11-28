@@ -48,7 +48,7 @@ class Document extends Model
     public function scopeSearch(Builder $query, string $search)
     {
         return $query->where('full_name', 'LIKE', "%$search%")
-            ->orWhere('dni', 'LIKE', "%$search%")
+            ->orWhere('doc_number', 'LIKE', "%$search%")
             ->orWhere('email', 'LIKE', "%$search%")
             ->orWhere('address', 'LIKE', "%$search%")
             ->orWhere('origin_place', 'LIKE', "%$search%")

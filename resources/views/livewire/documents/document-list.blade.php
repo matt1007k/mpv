@@ -27,7 +27,7 @@
                 class="group w-full grid grid-cols-3 md:grid-cols-9 gap-8 hover:bg-gray-100 px-0 py-3 sm:px-3 sm:py-4 rounded-lg cursor-default text-sm">
                 <div class="flex flex-col  whitespace-nowrap col-span-2">
                     <h6 class="font-medium truncate">{{ $document->full_name }}</h6>
-                    <p class="text-gray-500">DNI {{ $document->dni }}</p>
+                    <p class="text-gray-500">{{ strtoupper($document->doc_type)}} {{ $document->doc_number }}</p>
                 </div>
                 <div class="hidden sm:flex text-gray-500 truncate self-center md:col-span-2">
                     <p class="truncate"> {{ $document->email }}</p>
