@@ -103,6 +103,14 @@
                             {{ $document->created_at->format('d-m-Y h:m:s') }}
                         </dd>
                     </div>
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">
+                            Estado
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                            <x-documents.status :status="$document->status" />
+                        </dd>
+                    </div>
 
                     @if($document->file)
                     <div class="sm:col-span-2">
@@ -164,8 +172,7 @@
             </div>
         </div>
         @if(auth()->user()->isAdmin() && !$document->hasResponse())
-        <livewire:responses.answer-document-form :email="$document->email" :subject="$document->subject"
-            :documentId="$document->id" />
+        <livewire:responses.answer-document-form :document="$document" />
         @endif
         @if($document->hasResponse())
         <div class="

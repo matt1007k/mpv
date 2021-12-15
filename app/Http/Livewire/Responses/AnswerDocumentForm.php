@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Responses;
 
 use App\Mail\AnswerDocument;
 use App\Mail\SendDocumentObserve;
+use App\Models\Document;
 use App\Models\Response;
 use App\Models\User;
 use App\Notifications\sendAnswerDocumentNotification;
@@ -18,14 +19,14 @@ class AnswerDocumentForm extends Component
     public $document_number;
     public $file_number;
     public $observation;
-    public $documentId;
-    public $email;
+    public $document;
+    public $status;
 
-    public function mount(int $documentId = 0, string $subject = '', string $email = '')
+    public function mount(Document $document)
     {
-        $this->documentId = $documentId;
-        $this->subject = $subject;
-        $this->email = $email;
+        $this->document = $document;
+        $this->subject = $document->subject;
+        $this->status = $document->status;
     }
 
     public function toggleSend(string $type)
@@ -41,19 +42,21 @@ class AnswerDocumentForm extends Component
                 'subject' => 'required|string|max:255',
                 'document_number' => 'required|integer',
                 'file_number' => 'required|integer',
+                'status' => 'required|string',
             ]);
+            $this->document->update(['status' => $this->status]);
             $response = Response::create([
                 'document_number' => $this->document_number,
                 'file_number' => $this->file_number,
                 'type' => $this->type,
-                'document_id' => $this->documentId,
+                'document_id' => $this->document->id,
             ]);
 
-            $user = User::where('email', $this->email)->first();
+            $user = User::where('email', $this->document->email)->first();
             if ($user) {
                 $user->notify(new sendAnswerDocumentNotification($this->subject, $response));
             } else {
-                Mail::to($this->email)
+                Mail::to($this->document->email)
                     ->send(new AnswerDocument($this->subject, $response));
             }
             session()->flash('message', 'Respuesta enviado con exitó');
@@ -63,19 +66,21 @@ class AnswerDocumentForm extends Component
             $this->validate([
                 'subject' => 'required|string|max:255',
                 'observation' => 'required|string|max:255',
+                'status' => 'required|string',
             ]);
 
+            $this->document->update(['status' => $this->status]);
             $response = Response::create([
                 'observation' => $this->observation,
                 'type' => $this->type,
-                'document_id' => (int) $this->documentId,
+                'document_id' => (int) $this->document->id,
             ]);
 
-            $user = User::where('email', $this->email)->first();
+            $user = User::where('email', $this->document->email)->first();
             if ($user) {
                 $user->notify(new sendDocumentObserveNotification($this->subject, $response));
             } else {
-                Mail::to($this->email)
+                Mail::to($this->document->email)
                     ->send(new SendDocumentObserve($this->subject, $response));
             }
             session()->flash('message', 'Respuesta enviado con exitó');

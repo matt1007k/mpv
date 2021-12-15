@@ -11,7 +11,7 @@ class DocumentList extends Component
     use WithPagination;
 
     public $search = '';
-    public $orderBy = 'desc';
+    public $orderBy = 'asc';
     public $dateFrom = '';
     public $dateTo = '';
 
