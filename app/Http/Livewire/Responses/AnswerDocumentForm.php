@@ -20,13 +20,11 @@ class AnswerDocumentForm extends Component
     public $file_number;
     public $observation;
     public $document;
-    public $status;
 
     public function mount(Document $document)
     {
         $this->document = $document;
         $this->subject = $document->subject;
-        $this->status = $document->status;
     }
 
     public function toggleSend(string $type)
@@ -42,9 +40,8 @@ class AnswerDocumentForm extends Component
                 'subject' => 'required|string|max:255',
                 'document_number' => 'required|integer',
                 'file_number' => 'required|integer',
-                'status' => 'required|string',
             ]);
-            $this->document->update(['status' => $this->status]);
+            $this->document->update(['status' => 'processed']);
             $response = Response::create([
                 'document_number' => $this->document_number,
                 'file_number' => $this->file_number,
@@ -66,10 +63,9 @@ class AnswerDocumentForm extends Component
             $this->validate([
                 'subject' => 'required|string|max:255',
                 'observation' => 'required|string|max:255',
-                'status' => 'required|string',
             ]);
 
-            $this->document->update(['status' => $this->status]);
+            $this->document->update(['status' => 'processed']);
             $response = Response::create([
                 'observation' => $this->observation,
                 'type' => $this->type,

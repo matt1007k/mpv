@@ -27,6 +27,7 @@
                 <x-jet-input-error for="subject"></x-jet-input-error>
             </div>
             <div class="col-span-1">
+                {{--
                 <x-jet-label for="status" value="{{ __('Estado') }}" />
                 <x-form.select id="status" class="block mt-1 w-full" wire:model="status" name="status">
                     <option value="be_processed" {{ old('status')==='be_processed' ? 'selected' : '' }}>Por
@@ -34,7 +35,7 @@
                     <option value="processed" {{ old('status')==='processed' ? 'selected' : '' }}>Tramitado
                     </option>
                 </x-form.select>
-                <x-jet-input-error for="status"></x-jet-input-error>
+                <x-jet-input-error for="status"></x-jet-input-error> --}}
             </div>
 
             @if($type === 'success')

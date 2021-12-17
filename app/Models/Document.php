@@ -37,6 +37,11 @@ class Document extends Model
         return $this->response()->count() > 0;
     }
 
+    public function isProcessed()
+    {
+        return $this->status === 'processed';
+    }
+
     public function scopeHasUser(Builder $query)
     {
         if (!auth()->user()->isAdmin()) {
