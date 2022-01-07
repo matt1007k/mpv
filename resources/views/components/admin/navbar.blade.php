@@ -7,6 +7,10 @@
         <div class="hidden md:flex items-center space-x-8">
             <a href="{{ route('dashboard')}}"
                 class="@if(request()->routeIs('dashboard'))text-white @else text-indigo-300 @endif font-semibold text-base">Documentos</a>
+            @can('viewAny', '\App\Models\User')
+            <a href="{{ route('admin.users.index')}}"
+                class="@if(request()->routeIs('admin.users.index'))text-white @else text-indigo-300 @endif font-semibold text-base">Usuarios</a>
+            @endcan
         </div>
     </div>
     <div class="flex items-center space-x-8">

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DocumentsController;
 use App\Http\Controllers\Admin\ReportsController;
+use App\Http\Controllers\Admin\UsersController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,4 +21,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/documents/{document}', [DocumentsController::class, 'show'])->name('admin.documents.show');
     Route::get('/report-pdf/{params_code}', [ReportsController::class, 'reportPdf'])->name('reports.pdf');
     Route::get('/report-excel/{params_code}', [ReportsController::class, 'reportExcel'])->name('reports.excel');
+
+    Route::prefix('admin')
+        ->name('admin.')
+        ->group(function () {
+            Route::resource('users', UsersController::class)->except(['store', 'update', 'destroy']);
+        });
 });
