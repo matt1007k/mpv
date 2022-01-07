@@ -7,21 +7,21 @@
         </path>
     </svg>
     <div class="w-60 z-50 absolute origin-top-right right-0 shadow-lg" @click.away="open = false" x-show="open">
-        @can('view', $userId)
+        @can('view', $user)
         <a href="{{ route('admin.users.show', $userId)}}" class="option-item flex justify-between">
             <span>
                 Ver detalle
             </span>
         </a>
         @endcan
-        @can('update', $userId)
+        @can('update', $user)
         <a href="{{ route('admin.users.edit', $userId)}}" class="option-item flex justify-between">
             <span>
                 Editar
             </span>
         </a>
         @endcan
-        @can('delete', $userId)
+        @can('delete', $user)
         <div class="option-item flex justify-between" wire:click="delete">
             <span class="text-red-500">
                 Eliminar

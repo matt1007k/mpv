@@ -45,7 +45,7 @@
                     <span class="hidden md:flex mr-4 text-gray-500">{{ $user->createdAtFormat }}</span>
 
                     <div>
-                        <livewire:users.user-option wire:key="{{ $user->id }}" :userId="$user->id" />
+                        <livewire:users.user-option wire:key="{{ $user->id }}" :user="$user" />
                     </div>
                 </div>
 

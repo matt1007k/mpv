@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Users;
 
+use App\Models\User;
 use Livewire\Component;
 
 class UserOption extends Component
@@ -9,10 +10,12 @@ class UserOption extends Component
 
     public $showDropdown = false;
     public $userId;
+    public $user;
 
-    public function mount(int $userId = 0)
+    public function mount(User $user)
     {
-        $this->userId = $userId;
+        $this->userId = $user->id;
+        $this->user = $user;
     }
 
     public function delete()
