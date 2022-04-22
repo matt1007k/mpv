@@ -52,10 +52,10 @@
                     </div>
                 </div>
             </x-overlays.modal>
-            <a href="{{ route('login') }}"
+            {{-- <a href="{{ route('login') }}"
                 class="py-2 px-3 md:py-3 md:px-5 w-full md:w-auto text-center bg-transparent border-2 border-blue-500 font-semibold text-black rounded-md hover:bg-blue-500 hover:text-white transition-all duration-100 ease-linear">Ingresar
                 y
-                registrar documento</a>
+                registrar documento</a> --}}
         </div>
     </div>
 

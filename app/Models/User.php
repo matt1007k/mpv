@@ -88,6 +88,11 @@ class User extends Authenticatable
         return $this->role == 'admin';
     }
 
+    public function isPersonal()
+    {
+        return $this->role === 'admin';
+    }
+
     public function documents()
     {
         return $this->hasMany(\App\Models\Document::class);

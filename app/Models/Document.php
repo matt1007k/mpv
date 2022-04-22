@@ -44,7 +44,7 @@ class Document extends Model
 
     public function scopeHasUser(Builder $query)
     {
-        if (!auth()->user()->isAdmin()) {
+        if (!auth()->user()->isAdmin() && !auth()->user()->isPersonal()) {
             return $query->where('user_id', auth()->user()->id)
                 ->orWhere('email', auth()->user()->email);
         }

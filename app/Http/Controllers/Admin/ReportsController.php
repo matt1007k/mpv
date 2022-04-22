@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Document;
 use App\Services\EncryptService;
 use App\Services\JsonParseService;
+use PDF;
 
 class ReportsController extends Controller
 {

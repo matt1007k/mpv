@@ -38,7 +38,7 @@
                     <p class="truncate"> {{ $user->email }}</p>
                 </div>
                 <div class="hidden md:flex text-gray-500 truncate self-center md:col-span-2">
-                    <span class="p-2 rounded-md bg-blue-500 text-white">{{ $user->role }}</span>
+                    <span class="text-blue-500  font-medium capitalize">{{ __($user->role) }}</span>
                 </div>
                 <div
                     class="flex items-center justify-between justify-self-end whitespace-nowrap self-center col-span-1">

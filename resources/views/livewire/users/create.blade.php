@@ -14,20 +14,20 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
             <div class="col-span-1">
-                <x-jet-label for="name" value="{{ __('auth.full_name') }}*" />
+                <x-jet-label for="name">{{ __('auth.full_name') }}<span class="text-red-500">*</span></x-jet-label>
                 <x-jet-input wire:model="name" id="name" class="block mt-1 w-full " type="text" name="name"
                     :value="old('name')" required autofocus />
                 <x-jet-input-error for="name"></x-jet-input-error>
             </div>
             <div class="col-span-1">
-                <x-jet-label for="email" value="{{ __('auth.email') }}*" />
+                <x-jet-label for="email">{{ __('auth.email') }}<span class="text-red-500">*</span></x-jet-label>
                 <x-jet-input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email"
                     :value="old('email')" required autofocus />
                 <x-jet-input-error for="email"></x-jet-input-error>
             </div>
 
             <div class="col-span-1">
-                <label for="doc_type">{{ __('auth.doc_person')}}*</label>
+                <label for="doc_type">{{ __('auth.doc_person')}}<span class="text-red-500">*</span></label>
                 <x-form.select id="doc_type" class="block mt-1 w-full" wire:model="doc_type" name="doc_type">
                     <option value="">Seleccionar tipo</option>
                     <option value="dni" {{ old('doc_type')==='dni' ? 'selected' : '' }}>Natural</option>
@@ -37,29 +37,30 @@
             </div>
 
             <div class="col-span-1">
-                <x-jet-label for="doc_number" value="{{ __('auth.doc_number') }}*" />
+                <x-jet-label for="doc_number">{{ __('auth.doc_number') }}<span class="text-red-500">*</span>
+                </x-jet-label>
                 <x-jet-input wire:model="doc_number" id="doc_number" class="block mt-1 w-full" type="text"
                     name="doc_number" :value="old('doc_number')" required autofocus />
                 <x-jet-input-error for="doc_number"></x-jet-input-error>
             </div>
             <div class="col-span-1">
-                <label for="role">{{ __('Rol')}}*</label>
+                <label for="role">{{ __('Rol')}}<span class="text-red-500">*</span></label>
                 <x-form.select id="role" class="block mt-1 w-full" wire:model="role" name="role">
                     <option value="">Seleccionar rol</option>
-                    <option value="admin" {{ $role==='admin' ? 'selected' : '' }}>Administrador</option>
-                    <option value="user" {{ $role==='user' ? 'selected' : '' }}>Usuario normal</option>
+                    <option value="admin">{{ __('admin') }}</option>
+                    <option value="personal">{{ __('personal') }}</option>
+                    <option value="user">{{ __('Usuario normal') }}</option>
                 </x-form.select>
                 <x-jet-input-error for="role"></x-jet-input-error>
             </div>
             <div class="col-span-1">
-                <x-jet-label for="password" value="{{ __('auth.password') }}*" />
+                <x-jet-label for="password">{{ __('Password') }}<span class="text-red-500">*</span></x-jet-label>
                 <x-jet-input wire:model="password" id="password" class="block mt-1 w-full" type="password"
-                    name="password" :value="old('password')" required autofocus />
+                    name="password" required autofocus />
                 <x-jet-input-error for="password"></x-jet-input-error>
             </div>
+
         </div>
-
-
 
         <div class="mt-8 flex items-center justify-end space-x-3">
 

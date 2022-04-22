@@ -710,5 +710,8 @@
     "Zimbabwe": "Zimbabwe",
     "Zip / Postal Code": "Zip / Código postal",
     "Åland Islands": "Islas Åland",
-    "subject": "asunto"
+    "subject": "Asunto",
+    "admin": "Administrador",
+    "personal": "Personal",
+    "user": "Usuario"
 }
