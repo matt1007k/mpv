@@ -200,5 +200,8 @@ return [
         'data.attributes.type' => 'tipo',
         'data.attributes.detail' => 'detalle',
         'data.attributes.order' => 'pedido',
+
+        'cell_phone' => 'teléfono celular',
+        'origin_place' => 'lugar de procedencia',
     ],
 ];

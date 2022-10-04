@@ -49,7 +49,7 @@
                     <option value="">Seleccionar rol</option>
                     <option value="admin">{{ __('admin') }}</option>
                     <option value="personal">{{ __('personal') }}</option>
-                    <option value="user">{{ __('Usuario normal') }}</option>
+                    <option value="citizen">{{ __('citizen') }}</option>
                 </x-form.select>
                 <x-jet-input-error for="role"></x-jet-input-error>
             </div>

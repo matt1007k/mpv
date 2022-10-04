@@ -46,8 +46,9 @@
                 <label for="role">{{ __('Rol')}}*</label>
                 <x-form.select id="role" class="block mt-1 w-full" wire:model="role" name="role">
                     <option value="">Seleccionar rol</option>
-                    <option value="admin">Administrador</option>
-                    <option value="user">Usuario normal</option>
+                    <option value="admin">@lang('admin')</option>
+                    <option value="personal">@lang('personal')</option>
+                    <option value="citizen">{{ __('citizen') }}</option>
                 </x-form.select>
                 <x-jet-input-error for="role"></x-jet-input-error>
             </div>

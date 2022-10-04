@@ -120,7 +120,8 @@
             <div class="text-red-500 font-medium mb-2">{{ $message }}</div>
             @enderror
             <input type="file" wire:model="file" name="file" id="file"
-                class="py-3 px-4 border-2 border-blue-400 rounded-lg focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                class="py-3 px-4 border-2 border-blue-400 rounded-lg focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                accept="application/pdf">
         </div>
         @endif
 

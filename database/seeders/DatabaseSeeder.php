@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         \App\Models\User::factory()->create([
-            'name' => 'admin',
+            'name' => 'Administrador',
             'email' => 'admin@gmail.com',
             'doc_type' => 'dni',
             'doc_number' => '70112324',

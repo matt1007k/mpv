@@ -76,7 +76,7 @@
                             Rol
                         </dt>
                         <dd class="mt-3 text-sm text-gray-900 dark:text-white">
-                            <span class="p-2 rounded-md bg-blue-500 text-white">{{ $user->role }}</span>
+                            <span class="p-2 rounded-md bg-blue-500 text-white">{{ __($user->role) }}</span>
                         </dd>
                     </div>
 

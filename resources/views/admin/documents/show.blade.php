@@ -171,7 +171,7 @@
                 </dl>
             </div>
         </div>
-        @if(auth()->user()->isAdmin() && !$document->hasResponse())
+        @if(auth()->user()->isAdmin() || auth()->user()->isPersonal() && !$document->hasResponse())
         <livewire:responses.answer-document-form :document="$document" />
         @endif
         @if($document->hasResponse())

@@ -90,7 +90,12 @@ class User extends Authenticatable
 
     public function isPersonal()
     {
-        return $this->role === 'admin';
+        return $this->role === 'personal';
+    }
+
+    public function isCitizen()
+    {
+        return $this->role === 'citizen';
     }
 
     public function documents()

@@ -713,5 +713,6 @@
     "subject": "Asunto",
     "admin": "Administrador",
     "personal": "Personal",
-    "user": "Usuario"
+    "user": "Usuario",
+    "citizen": "Ciudadano"
 }

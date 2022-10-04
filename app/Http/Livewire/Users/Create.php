@@ -13,7 +13,7 @@ class Create extends Component
     public $doc_number;
     public $email;
     public $password;
-    public $role = 'user';
+    public $role = 'citizen';
 
     public function validateData()
     {

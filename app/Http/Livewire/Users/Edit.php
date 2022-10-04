@@ -15,7 +15,7 @@ class Edit extends Component
     public $doc_number;
     public $email;
     public $password;
-    public $role = 'user';
+    public $role = 'citizen';
 
     public function mount(User $user)
     {
